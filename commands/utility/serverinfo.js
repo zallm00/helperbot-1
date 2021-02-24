@@ -41,7 +41,7 @@ module.exports = {
       "russia": ":flag_ru: Russia",
       "south_africa": ":flag_za:  South Africa"
     };
-    let nivel = { //este seria el nivel de boost en el servidor
+    let level = {
       0: "None",
       1: "Level 1",
       2: "Level 2",
@@ -75,12 +75,12 @@ module.exports = {
       afk1 = `<#${afkID}> (${timeAFK}ms)`
     };
 
-
+    var server = message.guild;
     const embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setThumbnail(message.guild.iconURL({ dynamic: true }))
       .setTitle(`${message.guild.name}'s Information`)
-      .addField("<:HBbarchart:783351287676665917> **Server Information:**", [
+      .addField("<:HBhouse:783351287940382731> **Server Information:**", [
         `**Name:** ${message.guild.name}`,
         `**ID:** ${message.guild.id}`,
         `**Owner:** ${message.guild.owner.user.tag}`,
@@ -92,7 +92,9 @@ module.exports = {
       ])
       .addField("<:HBsearch:783351288149835857> **Server stats:**", [
         `**Users:** ${message.guild.members.cache.size} Total | ${message.guild.members.cache.filter(member => !member.user.bot).size} Member | ${message.guild.members.cache.filter(member => member.user.bot).size} Bot`,
-        `**Channels:** ${message.guild.channels.cache.size} Total | ${text} Text | ${vc} Voice | ${category} Category`
+        `**Channels:** ${message.guild.channels.cache.size} Total | ${text} Text | ${vc} Voice | ${category} Category`,
+        `**Boost level:** ${level[server.premiumTier]}`,
+        `**Boost Size:** ${server.premiumSubscriptionCount || "No boosts"}`
       ])
       .addField("<a:cdmusic:781188506981498891> **Server emojis:**", [
         `**Emojis Size:** ${message.guild.emojis.cache.size}`,
