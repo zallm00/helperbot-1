@@ -16,6 +16,7 @@ module.exports = {
     const fun = client.commands.filter(c => c.category == "Fun").map(c => '`'+c.name+'`').join(" | ");
     const music = client.commands.filter(c => c.category == "Music").map(c => '`'+c.name+'`').join(" | ");
     const suggestions = client.commands.filter(c => c.category == "Suggestions").map(c => '`'+c.name+'`').join(" | ");
+    const nsfw = client.commands.filter(c => c.category == "NSFW").map(c => '`'+c.name+'`').join(" | ");
 
     const cmd = client.commands.find(c => c.name == args[0]) || client.commands.find(c => c.aliases.includes(args[0]));
 
@@ -43,6 +44,7 @@ module.exports = {
       .addField(`**Utility [${client.commands.filter(c => c.category == "Utility").size}]**`, utility)
       .addField(`**Suggestions [${client.commands.filter(c => c.category == "Suggestions").size}]**`, suggestions)
       .addField(`**Fun [${client.commands.filter(c => c.category == "Fun").size}]**`, fun)
+      .addField(`**NSFW [${client.commands.filter(c => c.category == "NSFW").size}]**`, nsfw)
       .addField(`**Config [${client.commands.filter(c => c.category == "Config").size}]**`, config)
       .setImage("https://cdn.discordapp.com/attachments/359425464885837827/810769141790932992/standard.gif")
       .setFooter(`Use ${p}help <command-name> for more information about the command!`, message.author.displayAvatarURL({ dynamic: true }))
