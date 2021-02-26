@@ -13,7 +13,7 @@ module.exports = {
 
     let emojiProvided = args[0];
 
-    if(!message.guild.me.permissions.has("MANAGE_EMOJIS")) return message.channel.send("<:HBminus:783351288515657728> | I need `MANAGE_EMOJIS` permissions!")
+    
     if(!emojiProvided) return message.channel.send('<:HBminus:783351288515657728> | Provide an emoji, It has to be from this server.');
     
     const match = emojiProvided.match(/<:[a-zA-Z0-9_-]+:(\d{18})>/) || emojiProvided.match(/<a:[a-zA-Z0-9_-]+:(\d{18})>/); 
@@ -37,9 +37,9 @@ module.exports = {
     .setThumbnail(emoji.url) 
     .addField(`**Name:** ${emoji.name}`, [
       `**ID:** ${emoji.id}`,
-      `**Added By:** ${await emoji.fetchAuthor().then(user => user.tag) || "I can't see who added it"}`,
+      `**Added By:** ${await emoji.fetchAuthor().then(user => user.tag).catch(() => {}) || "I can't see who added it"}`,
       `**Animated:** ${emoji.animated ? 'Yes' : 'No'}`,
-      `**Identifier:** ${emoji.identifier}`,
+      `**Identifier:** \`<:${emoji.identifier}>\``,
       `**Created At:** ${emoji.createdAt.toUTCString().substr(0, 16)} (${checkDays(emoji.createdAt)})`,
       `**Emoji URL:** [Click here](${emoji.url})`
     ])

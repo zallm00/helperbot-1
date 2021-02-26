@@ -10,10 +10,22 @@ module.exports = {
   run: async (client, message, args) => {
 
     const embedServers = new Discord.MessageEmbed()
-        .setAuthor(`${client.user.username} | Servers`, client.user.displayAvatarURL())
-        .setDescription(`<:HBfolder:783351287868817448> **Servers:** ${client.guilds.cache.size}\n\n<:HBuser:783351289114918973> **Users:** ${client.guilds.cache.reduce((c,v) => c + v.memberCount, 0).toLocaleString()}\n\n<:HBchat:806684699032158228> **Channels:** ${client.channels.cache.size}`)
-        .setColor("RANDOM")
-        message.channel.send(embedServers);
+      .setThumbnail(client.user.displayAvatarURL())
+      .setTitle("<:HBinformation:783351288062672896> Information")
+      .setDescription([
+        `**Users:** ${client.guilds.cache.reduce((c, v) => c + v.memberCount, 0).toLocaleString()}`,
+        `**Guilds:** ${client.guilds.cache.size}`,
+        `**Channels:** ${client.channels.cache.size}`,
+        `**Emojis:** ${client.emojis.cache.size}`,
+        `**Ping:** ${client.ws.ping}`
+      ])
+      .setColor("#0CFF00")
+    message.channel.send("<a:HBloading:814700547382050846> **Obtaining Data!**").then((msg) => {
+      setTimeout(() => {
+        msg.delete()
+        msg.channel.send(embedServers);
+      }, 5000)
+    });
 
   }
 }
