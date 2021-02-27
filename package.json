@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "ffmpeg-static": "^4.2.7",
     "humanize-duration": "^3.25.1",
+    "is-hexcolor": "^1.0.0",
     "mathjs": "^9.2.0",
     "memejs": "^1.2.3",
     "moment": "^2.29.1",
