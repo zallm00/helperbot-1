@@ -10,7 +10,7 @@ module.exports = {
     cooldown: 5,
     run: async (client, message, args) => {
 
-        let persona = message.mentions.members.first() || message.author;
+        let persona = message.mentions.users.first() || message.author;
 
         let avatar = persona.displayAvatarURL({ dynamic: false, format: 'png', size: 2048 });
 
