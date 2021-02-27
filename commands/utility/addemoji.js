@@ -9,8 +9,8 @@ module.exports = {
     cooldown: 3,
     run: async (client, message, args) => {
 
-        if (!message.member.permissions.has("MANAGE_EMOJIS")) return message.channel.send('<:HBminus:783351288515657728> | You do not have \`MANAGE_EMOJIS\` permissions to use this command.');
-        if (!message.guild.me.permissions.has("MANAGE_EMOJIS")) return message.channel.send('<:HBminus:783351288515657728> | I require \`MANAGE_EMOJIS\` permission to lock.');
+        if (!message.member.permissions.has("MANAGE_EMOJIS")) return message.channel.send("<:HBminus:783351288515657728> | You don't have `MANAGE_EMOJIS` permission!");
+        if (!message.guild.me.permissions.has("MANAGE_EMOJIS")) return message.channel.send("<:HBminus:783351288515657728> | I need `MANAGE_EMOJIS` permission!");
 
         if (!args.length) return message.channel.send("<:HBminus:783351288515657728> | Please specify some emojis!");
 
@@ -26,7 +26,7 @@ module.exports = {
                         message.channel.send(`<:HBminus:783351288515657728> | ${e}`);
                         return;
                     })
-                        .then((emoji) => message.channel.send(`<:HBchecked:783351288171593728> **Added:**\n\`${emoji.url}\``)).catch(() => {})
+                        .then((emoji) => message.channel.send(`<:HBchecked:783351288171593728> | **Added:**\n\`${emoji.url}\``)).catch(() => {})
                 } catch (err) {
                     message.channel.send("<:HBminus:783351288515657728> | The server reached the maximum number of Emojis. Therefore I cannot add more emojis.")
                 }

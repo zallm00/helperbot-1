@@ -2,11 +2,11 @@ const Discord = require("discord.js");
 const canvacord = require("canvacord");
 
 module.exports = {
-    name: "invert",
+    name: "wasted",
     aliases: [],
-    description: "Invert a image",
+    description: "Wasted a image",
     category: "Fun",
-    usage: "invert",
+    usage: "wasted",
     cooldown: 5,
     run: async (client, message, args) => {
 
@@ -14,9 +14,9 @@ module.exports = {
 
         let avatar = persona.displayAvatarURL({ dynamic: false, format: 'png', size: 2048 });
 
-        let datos = await canvacord.Canvas.invert(avatar);
+        let datos = await canvacord.Canvas.wasted(avatar);
 
-        let imagen = new Discord.MessageAttachment(datos, "InvertHelperBot.png");
+        let imagen = new Discord.MessageAttachment(datos, "WastedHelperBot.png");
 
         message.channel.send(imagen);
     }

@@ -9,11 +9,6 @@ module.exports = {
     cooldown: 3,
     run: async (client, message, args) => {
 
-
-        let user = message.mentions.users.first();
-        if (!user) return message.channel.send(`<:HBminus:783351288515657728> | You have to mention someone first!`);
-        if (user.id === message.author.id) return message.reply(`How do you try to hug yourself?`);
-
         let gifs = [
             'https://media1.tenor.com/images/1d78f70a84ad818aa36f9af0d15e9eae/tenor.gif',
             'https://media1.tenor.com/images/6db54c4d6dad5f1f2863d878cfb2d8df/tenor.gif?itemid=7324587',
@@ -26,12 +21,33 @@ module.exports = {
             "https://media.giphy.com/media/143v0Z4767T15e/giphy.gif",
             "https://i.gifer.com/GXfC.gif",
             "https://i.pinimg.com/originals/e6/98/eb/e698eb79572e5485636a9ff2282cf4c8.gif",
-            "https://media1.tenor.com/images/44b4b9d5e6b4d806b6bcde2fd28a75ff/tenor.gif?itemid=9383138"
-        ]
+            "https://media1.tenor.com/images/44b4b9d5e6b4d806b6bcde2fd28a75ff/tenor.gif?itemid=9383138",
+            "https://media.discordapp.net/attachments/760176618621632554/815112926230741052/c3bd2e38-3909-49cd-bc22-98f7c807c340.gif?width=430&height=242",
+            "https://media.discordapp.net/attachments/760176618621632554/815112829304438825/lv_0_20201201103856-1.gif?width=550&height=312",
+            "https://media.discordapp.net/attachments/760176618621632554/815112675503243274/18edb3a164365e84d89025708a0146224467d227_hq.gif?width=400&height=225"
+        ];
+
         let randomIMG = gifs[Math.floor(Math.random() * gifs.length)];
 
+        let user = message.mentions.users.first() || message.author;
+        if (user.id === message.author.id) {
+            const author = new Discord.MessageEmbed()
+                .setDescription(`**${message.author}**, I give you a hug :heart:`)
+                .setColor("RANDOM")
+                .setImage(randomIMG)
+            return message.channel.send(author);
+        };
+    
+        if (user.id === client.user.id) {
+            const bot = new Discord.MessageEmbed()
+                .setDescription(`**${message.author}**, thanks for the hug :heart:`)
+                .setColor("RANDOM")
+                .setImage(randomIMG)
+            return message.channel.send(bot);
+        };
+
         const embed = new Discord.MessageEmbed()
-            .setDescription(`**${message.author.username}** gives **${user.username}** a hug :hearts:`)
+            .setDescription(`**${message.author}** gives **${user}** a hug ${args.slice(1).join(' ') || ''} :heart:`)
             .setColor("RANDOM")
             .setImage(randomIMG)
         message.channel.send(embed);

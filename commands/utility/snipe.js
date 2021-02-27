@@ -9,7 +9,8 @@ module.exports = {
   cooldown: 3,
   run: async (client, message, args) => {
 
-    let msg = client.snipes.get(message.channel.id);
+    let channel = message.mentions.channels.first() || message.channel;
+    let msg = client.snipes.get(channel.id);
     if(!msg) return message.channel.send('<:HBminus:783351288515657728> | I have not seen a deleted message.');
     
     const embedSnipe = new Discord.MessageEmbed()
