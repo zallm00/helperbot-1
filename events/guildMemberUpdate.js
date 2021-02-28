@@ -16,8 +16,7 @@ module.exports = async (client, oldMember, newMember) => {
             .addField(`<:HBuser:783351289114918973> **Member:**`, `${newMember} | ${newMember.id}`)
             .addField(`<:HBback:783351288091901952> **Old Nickname:**`, `${oldMember.displayName}`)
             .addField(`<:HBnext:783351287692394536> **New Nickname:**`, `${newMember.displayName}`)
-            .setFooter(`Helper Bot | Logs System`, client.user.displayAvatarURL())
-            .setTimestamp()
+            .setFooter(`Helper Bot | Logs System`, client.user.displayAvatarURL());
 
         client.channels.cache.get(Log.ChannelID).send(Update)
     };
@@ -33,8 +32,7 @@ module.exports = async (client, oldMember, newMember) => {
             .addField(`<:HBnext:783351287692394536> **Roles Add:**`, `${role.map(x => x)} | ${role.map(x => x.id)}`)
             .setThumbnail(newMember.user.displayAvatarURL({ dynamic: true }))
             .setFooter(`Helper Bot | Logs System`, client.user.displayAvatarURL())
-            .setTimestamp()
-            .setColor('RANDOM')
+            .setColor('RANDOM');
         client.channels.cache.get(Log.ChannelID).send(RolesAdd)
     };
     if (oldMember.roles.cache.size > newMember.roles.cache.size) {
@@ -47,7 +45,6 @@ module.exports = async (client, oldMember, newMember) => {
             .addField(`<:HBminus:783351288515657728> **Roles Remove:**`, `${role.map(x => x)} | ${role.map(x => x.id)})`)
             .setThumbnail(newMember.user.displayAvatarURL({ dynamic: true }))
             .setFooter(`Helper Bot | Logs System`, client.user.displayAvatarURL())
-            .setTimestamp()
             .setColor('RANDOM')
         client.channels.cache.get(Log.ChannelID).send(RolesRemove);
     }
