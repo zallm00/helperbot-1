@@ -7,6 +7,8 @@ module.exports = {
     description: "Trash a image",
     category: "Fun",
     usage: "trash",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

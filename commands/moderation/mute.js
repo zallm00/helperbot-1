@@ -6,7 +6,9 @@ module.exports = {
   description: "Mute a member",
   category: "Moderation",
   usage: "mute <mention> (reason)",
-  cooldown: Number,
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MUTE_MEMBERS", "EMBED_LINKS"],
+  userPermissions: ["MUTE_MEMBERS"],
+  cooldown: 3,
   run: async (client, message, args) => {
 
 const usuario = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
@@ -18,27 +20,27 @@ if(!message.member.permissions.has('MUTE_MEMBERS')) return message.channel.send(
 if(!message.guild.me.permissions.has('MUTE_MEMBERS')) return message.channel.send('<:HBminus:783351288515657728> | I need `MUTE_MEMBERS` permission!');
 if(!message.guild.me.permissions.has('MANAGE_ROLES')) return message.channel.send('<:HBminus:783351288515657728> | I need `MANAGE_ROLES` permission!');
 if(!usuario) return message.channel.send('<:HBminus:783351288515657728> | You have not mentioned any user.');
-if(usuario.id === message.author.id) return message.channel.send('<:HBminus:783351288515657728> | You cannot silence yourself.'); 
-if(usuario.id === client.user.id) return message.channel.send('<:HBminus:783351288515657728> | You can not silence me.') 
-if(message.guild.ownerID !== message.author.id && usuario.roles.highest.comparePositionTo(message.member.roles.highest) >= 0) return message.channel.send('<:HBminus:783351288515657728> | You cannot mute that user.'); 
-if(role && role.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('<:HBminus:783351288515657728> | I can not play the Muteado role.'); 
-if(role && usuario.roles.cache.has(role.id)) return message.channel.send('<:HBminus:783351288515657728> | That user is already muted.'); 
-if(razon.length > 1024) return message.channel.send('The reason cannot exceed 1024 characters.') 
-if(!role){ 
-message.guild.roles.create({ 
-data: { name: 'Muted', 
-color: '#979797', 
-reason: 'Mute role'} 
-}).then(role => { 
-message.guild.channels.cache.forEach(r => r.updateOverwrite(role.id, { 
-SEND_MESSAGES: false 
-  })) 
+if(usuario.id === message.author.id) return message.channel.send('<:HBminus:783351288515657728> | You cannot silence yourself.');
+if(usuario.id === client.user.id) return message.channel.send('<:HBminus:783351288515657728> | You can not silence me.')
+if(message.guild.ownerID !== message.author.id && usuario.roles.highest.comparePositionTo(message.member.roles.highest) >= 0) return message.channel.send('<:HBminus:783351288515657728> | You cannot mute that user.');
+if(role && role.comparePositionTo(message.guild.me.roles.highest) >= 0) return message.channel.send('<:HBminus:783351288515657728> | I can not play the Muteado role.');
+if(role && usuario.roles.cache.has(role.id)) return message.channel.send('<:HBminus:783351288515657728> | That user is already muted.');
+if(razon.length > 1024) return message.channel.send('The reason cannot exceed 1024 characters.')
+if(!role){
+message.guild.roles.create({
+data: { name: 'Muted',
+color: '#979797',
+reason: 'Mute role'}
+}).then(role => {
+message.guild.channels.cache.forEach(r => r.updateOverwrite(role.id, {
+SEND_MESSAGES: false
+  }))
 
-usuario.roles.add(role.id) 
+usuario.roles.add(role.id)
 })
-}else{ 
-usuario.roles.add(role.id) 
-} 
+}else{
+usuario.roles.add(role.id)
+}
 let embed = new Discord.MessageEmbed()
 
 .setTitle(`**${message.guild.name}** | **New Mute**`)

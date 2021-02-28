@@ -6,6 +6,8 @@ module.exports = {
   description: "Delete messages from a chat",
   category: "Moderation",
   usage: "clear <amount>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MANAGE_MESSAGES"],
+  userPermissions: ["MANAGE_MESSAGES"],
   cooldown: 3,
   run: async (client, message, args) => {
 
@@ -14,7 +16,7 @@ if(!message.member.hasPermission("MANAGE_MESSAGES"))
 return message.channel.send("<:HBminus:783351288515657728> | You don't have `MANAGE_MESSAGES` permission!")
 
 
-if(!message.guild.me.permissions.has("MANAGE_MESSAGES")) 
+if(!message.guild.me.permissions.has("MANAGE_MESSAGES"))
 return message.channel.send('<:HBminus:783351288515657728> | I need `MANAGE_MESSAGES` permission!');
 
 try {

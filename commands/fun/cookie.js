@@ -6,6 +6,8 @@ module.exports = {
   description: "Have a coockie a user",
   category: "Fun",
   usage: "cookie <mention>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+  userPermissions: [],
   cooldown: 2,
   run: async (client, message, args) => {
 

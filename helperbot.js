@@ -147,7 +147,7 @@ client.on("message", async message => {
     let data = await modelafk.findOne({ id: i.id });
     if (data && data.isafk) {
       const embedMentionUserAFK = new Discord.MessageEmbed()
-        .setDescription(`<:HBuser:783351289114918973> **${i.tag}** is AFK`)
+        .setDescription(`<:HBuser:783351289114918973> **${i.tag}** is **AFK**`)
         .addField("<:HBsearch:783351288149835857> **Reason:**", "" + data.reason || 'Has No Reason' + "")
         .addField("<:HBrefresh:783351288292442183> **Time AFK:**", moment.duration(Date.now() - data.timeAfk).format("d [Days], h [Hours], m [Minutes], s [Seconds]", {
           largest: 1

@@ -6,6 +6,8 @@ module.exports = {
     description: "Get a random Waifu created by an AI from `[ThisWaifuDoesNotExist](https://www.thiswaifudoesnotexist.net/)`",
     category: "Fun",
     usage: "waifu",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
 

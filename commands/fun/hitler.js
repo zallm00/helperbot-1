@@ -7,6 +7,8 @@ module.exports = {
     description: "Worse than hitler",
     category: "Fun",
     usage: "hitler",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

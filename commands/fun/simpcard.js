@@ -7,6 +7,8 @@ module.exports = {
   description: "",
   category: "Fun",
   usage: "simp",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+  userPermissions: [],
   cooldown: 4,
   run: async (client, message, args) => {
 

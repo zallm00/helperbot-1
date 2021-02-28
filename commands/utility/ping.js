@@ -54,15 +54,21 @@ module.exports = {
       color = "#2EFF00"
     } else if (ping > 10) {
       color = "#2EFF00"
-    }
+    };
+
     let date = Date.now();
     let p = new Promise((r, j) => {
       require('mongoose').connection.db.admin().ping((err, result) => (err || !result) ? j(err || result) : r(Date.now() - date))
     });
 
-
     const embedPing = new Discord.MessageEmbed()
-      .setDescription(`<:HBchat:806684699032158228> **Message Ping** - \`${Date.now() - message.createdTimestamp}ms\`\n\n<:HBwifi:783351288079319040> **API Ping** - \`${ping}ms\`\n\n<:HBfolder:783351287868817448> **DB Ping** - \`${await p}ms\`\n\n<:HBbarchart:783351287676665917> **Status** - ${emote}`)
+      .setTitle("<:HBinformation:783351288062672896> Ping")
+      .setDescription([
+        `Message Ping: **${Date.now() - message.createdTimestamp}**ms`,
+        `API Ping: **${client.ws.ping}**ms`,
+        `DB Ping: **${await p}**ms`,
+        `Status: ${emote}`
+      ])
       .setColor(color)
     message.channel.send(embedPing);
 

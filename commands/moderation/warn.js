@@ -7,6 +7,8 @@ module.exports = {
     description: "Warn a user",
     category: "Moderation",
     usage: "warn <User> <Reason>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: ["KICK_MEMBERS"],
     cooldown: 3,
     run: async (client, message, args) => {
 

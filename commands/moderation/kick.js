@@ -6,6 +6,8 @@ module.exports = {
   description: "Kick a member from the server",
   category: "Moderation",
   usage: "kick <mention> (reason)",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "KICK_MEMBERS", "EMBED_LINKS"],
+  userPermissions: ["KICK_MEMBERS"],
   cooldown: 5,
   run: async (client, message, args, p) => {
 

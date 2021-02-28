@@ -6,6 +6,8 @@ module.exports = {
   description: "Ban a member from the server",
   category: "Moderation",
   usage: "ban <mention> (reason)",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS", "BAN_MEMBERS"],
+  userPermissions: ["BAN_MEMBERS"],
   cooldown: 4,
   run: async (client, message, args) => {
 

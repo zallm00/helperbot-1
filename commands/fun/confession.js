@@ -7,6 +7,8 @@ module.exports = {
   description: "Send a text anonymously",
   category: "Fun",
   usage: "confession <confession>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
@@ -18,8 +20,8 @@ if(!text) return message.channel.send("<:HBminus:783351288515657728> | You have 
 
 const embed = new Discord.MessageEmbed()
 .setTitle('<a:sonrojao:774039793888657489> | **New confession**')
-.setDescription(text) 
-.setColor('RANDOM') 
+.setDescription(text)
+.setColor('RANDOM')
 .setFooter('Author: Unknown')
 .setThumbnail(message.guild.iconURL({ dynamic: true }))
 message.guild.channels.cache.get(channelConf.ChannelID).send(embed);

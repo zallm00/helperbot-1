@@ -6,9 +6,11 @@ module.exports = {
   aliases: [],
   description: "A simple command to put you triggered",
   category: "Fun",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+  userPermissions: [],
   cooldown: 5,
   run: async (client, message, args) => {
-    
+
     var persona = message.mentions.users.first() || message.author;
 
     var avatar = persona.displayAvatarURL({dynamic:false, format:'png'});

@@ -7,6 +7,8 @@ module.exports = {
   description: "Remove all warnings from a member",
   category: "Moderation",
   usage: "clearwarns <mention>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+  userPermissions: ["ADMINISTRATOR"],
   cooldown: 4,
   run: async (client, message, args) => {
     if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send("<:HBminus:783351288515657728> | You don't have `ADMINISTRATOR` permission!");

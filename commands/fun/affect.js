@@ -7,6 +7,8 @@ module.exports = {
     description: "No, it doesn't affect my baby",
     category: "Fun",
     usage: "affect",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

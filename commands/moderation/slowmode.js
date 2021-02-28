@@ -8,6 +8,8 @@ module.exports = {
     description: "Activate **slowmode** on a channel",
     category: "Moderation",
     usage: "slowmode <#channel> <time>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MANAGE_CHANNELS", "EMBED_LINKS"],
+    userPermissions: ["MANAGE_CHANNELS"],
     cooldown: 3,
     run: async (client, message, args, p) => {
 

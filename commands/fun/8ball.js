@@ -5,11 +5,13 @@ module.exports = {
   aliases: ["8b"],
   description: "I answer a simple question",
   category: "Fun",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: (client, message, args) => {
-    
+
   if(!args.join(" ")) return message.channel.send("<:HBminus:783351288515657728> | Please put the question.");
-  
+
   if(args.join(" ").length > 50) return message.channel.send("<:HBminus:783351288515657728> | The question is too long.");
 
   const answers = [

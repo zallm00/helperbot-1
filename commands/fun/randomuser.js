@@ -6,6 +6,8 @@ module.exports = {
     description: "Avata and Tag for random user",
     category: "Fun",
     usage: "randomuser",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
 

@@ -8,6 +8,8 @@ module.exports = {
     description: "Temporarily mute a member",
     category: "Moderation",
     usage: "tempmute <mention> <1h>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MUTE_MEMBERS", "EMBED_LINKS"],
+    userPermissions: ["MUTE_MEMBERS"],
     cooldown: 3,
     run: async (client, message, args) => {
 

@@ -6,6 +6,8 @@ module.exports = {
     description: "Has hug a member",
     category: "Fun",
     usage: "hug <mention>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
 
@@ -37,7 +39,7 @@ module.exports = {
                 .setImage(randomIMG)
             return message.channel.send(author);
         };
-    
+
         if (user.id === client.user.id) {
             const bot = new Discord.MessageEmbed()
                 .setDescription(`**${message.author}**, thanks for the hug :heart:`)

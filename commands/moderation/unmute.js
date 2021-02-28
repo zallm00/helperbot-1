@@ -6,6 +6,8 @@ module.exports = {
   description: "Unmute members",
   category: "Moderation",
   usage: "unmute <mention> (reason)",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MUTE_MEMBERS", "EMBED_LINKS"],
+  userPermissions: ["MUTE_MEMBERS"],
   cooldown: 2,
   run: async (client, message, args) => {
 

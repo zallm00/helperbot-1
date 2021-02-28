@@ -6,6 +6,8 @@ module.exports = {
   description: "Say your text",
   category: "Fun",
   usage: "say [text]",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

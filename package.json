@@ -2,9 +2,9 @@
   "name": "helperbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "helperbot.js",
   "scripts": {
-    "start": "index.js"
+    "start": "helperbot.js"
   },
   "keywords": [],
   "author": "",

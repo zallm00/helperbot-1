@@ -7,6 +7,8 @@ module.exports = {
   description: "Get a user's warns in the guild",
   category: "Moderation",
   usage: "warnings <User Mention>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

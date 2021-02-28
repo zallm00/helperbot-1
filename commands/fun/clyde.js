@@ -6,6 +6,8 @@ module.exports = {
     description: "Say text",
     category: "Fun",
     usage: "clyde <text>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
 

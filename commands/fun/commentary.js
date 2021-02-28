@@ -7,6 +7,8 @@ module.exports = {
     description: "YouTube comment",
     category: "Fun",
     usage: "commentary",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

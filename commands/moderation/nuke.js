@@ -6,6 +6,8 @@ module.exports = {
     description: "Clone a server channel",
     category: "Moderation",
     usage: "nuke",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MANAGE_CHANNELS", "EMBED_LINKS"],
+    userPermissions: ["MANAGE_CHANNELS"],
     cooldown: 3,
     run: async (client, message, args) => {
 

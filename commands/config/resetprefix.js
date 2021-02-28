@@ -8,6 +8,8 @@ module.exports = {
   description: "Change the bot prefix to the original prefix",
   category: "Config",
   usage: "rprefix",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+  userPermissions: ["ADMINISTRATOR"],
   cooldown: 4,
   run: async (client, message, args) => {
     if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send("<:HBminus:783351288515657728> | I'm sorry, but you don't have the necessary permissions to use that command.");

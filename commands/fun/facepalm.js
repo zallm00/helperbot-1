@@ -7,6 +7,8 @@ module.exports = {
     description: "Facepalm",
     category: "Fun",
     usage: "facepalm",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "ATTACH_FILES"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 
