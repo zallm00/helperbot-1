@@ -22,20 +22,6 @@ module.exports = {
 
     const cmd = client.commands.find(c => c.name == args[0]) || client.commands.find(c => c.aliases.includes(args[0]));
 
-    let permissionsBot;
-    if(!cmd) {
-      permissionsBot = "Does not require Permissions"
-    } else {
-      permissionsBot = '`'+cmd.botPermissions.join(" | ")+'`'
-    };
-
-    let permissionsUser;
-    if(!cmd) {
-      permissionsBot = "Does not require Permissions"
-    } else {
-      permissionsBot = '`'+cmd.userPermissions.join(" | ")+'`'
-    };
-
     if (cmd) {
       const embed = new Discord.MessageEmbed()
         .setColor("#0FFF00")
@@ -47,8 +33,8 @@ module.exports = {
         .addField("**Aliases:**", cmd.aliases.join(" | ") || "Has No Aliases")
         .addField("**Description:**", cmd.description || "Has No Description")
         .addField("**Usage:**", `${p}${cmd.usage}`)
-        .addField("**Bot Permissions:**", `${permissionsBot}`)
-        .addField("**User Permissions:**", `${permissionsUser}`)
+        .addField("**Bot Permissions:**", `${cmd.botPermissions.join(" | ") || "Does not require Permissions"}`)
+        .addField("**User Permissions:**", `${cmd.userPermissions.join(" | ") || "Does not require Permissions"}`)
         .addField("**Cooldown:**", new String(cmd.cooldown).split("0")[0] + "s" || "Has No Cooldown");
       return message.channel.send(embed);
     };
