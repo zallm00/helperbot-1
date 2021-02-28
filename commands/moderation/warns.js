@@ -24,7 +24,7 @@ module.exports = {
         }))
         .setColor("#F3FF00")
         .setFooter("Helper Bot | Moderation System", client.user.displayAvatarURL({dynamic: true}))
-        message.channel.send(embedWarnings)
+        message.channel.send(embedWarnings);
     })
 
   }
