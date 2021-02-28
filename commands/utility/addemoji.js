@@ -6,6 +6,8 @@ module.exports = {
     description: "Add external emojis on your server",
     category: "Utility",
     usage: "addemoji <emoji> <emoji> <emoji>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "MANAGE_EMOJIS"],
+    userPermissions: ["MANAGE_EMOJIS"],
     cooldown: 3,
     run: async (client, message, args) => {
 

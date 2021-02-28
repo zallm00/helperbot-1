@@ -6,6 +6,8 @@ module.exports = {
   description: "You can see the members with the role",
   category: "Utility",
   usage: "inrole <role>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 2,
   run: async (client, message, args) => {
 

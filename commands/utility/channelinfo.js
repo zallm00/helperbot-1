@@ -7,6 +7,8 @@ module.exports = {
   description: "Gives information about a channel",
   category: "Utility",
   usage: "channelinfo",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

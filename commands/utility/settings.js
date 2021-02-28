@@ -10,6 +10,8 @@ module.exports = {
     description: "Displays the current server configuration",
     category: "Utility",
     usage: "settings",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
 
@@ -45,7 +47,7 @@ module.exports = {
         } else {
             a4 = `<#${chsuggestions.ChannelID}>`
         };
-        
+
         const embedSettings = new Discord.MessageEmbed()
             .setTitle("**Server Settings**")
             .setDescription(`<:HBpencil:783351288662327366> **Custom Prefix:** ${a1}\n\n<:HBfile:783351289224101928> **Logs Channel:** ${a2}\n\n<:HBfolder:783351287868817448> **Confessions Channel:** ${a3}\n\n<:HBdirection:783351288154423336> **Suggestions Channel:** ${a4}`)

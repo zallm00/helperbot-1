@@ -6,6 +6,8 @@ module.exports = {
   description: "Vote for me on [top.gg](https://top.gg/bot/761300013317488660)",
   category: "Utility",
   usage: "vote",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

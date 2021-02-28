@@ -6,6 +6,8 @@ module.exports = {
     description: "Shows the number of songs playing",
     category: "Music",
     usage: "shuffle",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
+    userPermissions: ["CONNECT"],
     cooldown: 3,
     run: async (client, message, args) => {
         if (!message.member.voice.channel) return message.channel.send(`<:HBminus:783351288515657728> | You're not in a voice channel!`);

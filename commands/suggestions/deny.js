@@ -7,6 +7,8 @@ module.exports = {
     description: "Deny a server suggestion",
     category: "Suggestions",
     usage: "deny-suggestion <message-suggest-ID> <reason>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: ["MANAGE_MESSAGES"],
     cooldown: 2,
     run: async (client, message, args, p) => {
         const messageID = args[0];

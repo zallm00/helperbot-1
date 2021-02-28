@@ -6,6 +6,8 @@ module.exports = {
   description: "Provides user help",
   category: "Utility",
   usage: "help (command)",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 9,
   run: async (client, message, args, p) => {
     let user = message.member;
@@ -27,10 +29,12 @@ module.exports = {
         .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
         .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
         .addField("**Name:**", cmd.name)
+        .addField("**Category:**", cmd.category)
         .addField("**Aliases:**", cmd.aliases.join(" | ") || "Has No Aliases")
         .addField("**Description:**", cmd.description || "Has No Description")
         .addField("**Usage:**", `${p}${cmd.usage}`)
-        .addField("**Category:**", cmd.category)
+        .addField("**Bot Permissions:**", `${cmd.botPermissions.join(" | ") || "Does not require Permissions"}`)
+        .addField("**User: Permissions:**", `${cmd.userPermissions.join(" | ") || "Does not require Permissions"}`)
         .addField("**Cooldown:**", new String(cmd.cooldown).split("0")[0] + "s" || "Has No Cooldown");
       return message.channel.send(embed);
     };
@@ -48,48 +52,7 @@ module.exports = {
       .addField(`**Config [${client.commands.filter(c => c.category == "Config").size}]**`, config)
       .setImage("https://cdn.discordapp.com/attachments/359425464885837827/810769141790932992/standard.gif")
       .setFooter(`Use ${p}help <command-name> for more information about the command!`, message.author.displayAvatarURL({ dynamic: true }))
-
-   /* const ModerationEmbed = new Discord.MessageEmbed()
-      .setColor("#00FF17")
-      .setTitle("**Moderation Section**")
-      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
-      .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-      .setDescription(`\`\`\`${moderation}\`\`\``)
-      .setTimestamp()
-
-    const MusicEmbed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
-      .setTitle("**Music Section**")
-      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
-      .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-      .setDescription(`\`\`\`${music}\`\`\``)
-      .setTimestamp()
-
-    const UtilityEmbed = new Discord.MessageEmbed()
-      .setColor("#6800FF")
-      .setTitle("**Utility Section**")
-      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
-      .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-      .setDescription(`\`\`\`${utility}\`\`\``)
-      .setTimestamp()
-
-    const FunEmbed = new Discord.MessageEmbed()
-      .setColor("#FF00F7")
-      .setTitle("**Fun Section**")
-      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
-      .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-      .setDescription(`\`\`\`${fun}\`\`\``)
-      .setTimestamp()
-
-    const ConfigEmbed = new Discord.MessageEmbed()
-      .setColor("#F7FF00")
-      .setTitle("**Config Section**")
-      .setAuthor(client.user.tag, client.user.displayAvatarURL({ dynamic: true }))
-      .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-      .setDescription(`\`\`\`${config}\`\`\``)
-      .setTimestamp()
-
-  */ message.channel.send(OneEmbed)
+    message.channel.send(OneEmbed)
 
   },
 };

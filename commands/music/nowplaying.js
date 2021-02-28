@@ -6,6 +6,8 @@ module.exports = {
     description: "Displays information about the currently playing song",
     category: "Music",
     usage: "np",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
+    userPermissions: ["CONNECT"],
     cooldown: 2,
     run: async (client, message, args, playlist) => {
 
@@ -20,8 +22,8 @@ module.exports = {
         const filters = [];
 
         Object.keys(client.player.getQueue(message).filters).forEach((filterName) => client.player.getQueue(message).filters[filterName]) ? filters.push(filterName) : false;
-        
-        
+
+
         const embedSong = new Discord.MessageEmbed()
             .setColor('#00FFF7')
             .setTitle(track.title)

@@ -6,6 +6,8 @@ module.exports = {
   description: "Give the bot invite",
   category: "Utility",
   usage: "invite",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
@@ -18,7 +20,7 @@ module.exports = {
     .addField("**Support Server**", `[🔧 Click here](https://discord.gg/jNQkg9qdDM)`)
     .setImage("https://cdn.discordapp.com/attachments/798229714409750590/798300763025309706/helperbot_2.gif")
     .setColor("RANDOM")
-    .setThumbnail(user.user.displayAvatarURL({dynamic : true})) 
+    .setThumbnail(user.user.displayAvatarURL({dynamic : true}))
     .setFooter("Helper Bot | Invite", client.user.displayAvatarURL())
     message.channel.send(embed);
 

@@ -6,6 +6,8 @@ module.exports = {
   description: "Activate a filter",
   category: "Music",
   usage: "filter [filter]",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
+  userPermissions: ["CONNECT"],
   cooldown: 2,
   run: async (client, message, args, p) => {
 

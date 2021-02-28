@@ -7,6 +7,8 @@ module.exports = {
     description: "Give the information of a server member",
     category: "Utility",
     usage: "user",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

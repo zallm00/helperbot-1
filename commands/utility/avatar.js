@@ -6,10 +6,12 @@ module.exports = {
   description: "Displays the member's avatar",
   category: "Utility",
   usage: "avatar",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
-let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author; 
+let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
 
 const EmbedAvatar = new Discord.MessageEmbed()
  .setTitle(`<:HBuser:783351289114918973> **${user.username}** Avatar`)

@@ -6,6 +6,8 @@ module.exports = {
   description: "Watch a ultimate edit message",
   category: "Utility",
   usage: "editsnipe",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

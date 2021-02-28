@@ -6,6 +6,8 @@ module.exports = {
     description: "Send a All emojis for server",
     category: "Utility",
     usage: "emojilist <common/animated/all>",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+    userPermissions: [],
     cooldown: 7,
     run: async (client, message, args, p) => {
 

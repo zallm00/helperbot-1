@@ -6,6 +6,8 @@ module.exports = {
   description: "Give information about a role",
   category: "Utility",
   usage: "roleinfo <rol>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 4,
   run: async (client, message, args) => {
 

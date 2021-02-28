@@ -8,6 +8,8 @@ module.exports = {
     description: "color image",
     category: "Fun",
     usage: "color",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

@@ -7,6 +7,8 @@ module.exports = {
     description: "Notify member is offline or AFK",
     category: "Utility",
     usage: "afk (reason)",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 2,
     run: async (client, message, args) => {
 
@@ -22,17 +24,17 @@ module.exports = {
               isafk: true,
               timeAfk: Date.now()
             })
-    
+
             else{
-    
+
     await AFK.updateOne({id: message.author.id}, {
               reason: reason1,
                isafk: true,
                timeAfk: Date.now()
             })
             };
-    
-    
+
+
     const embedAFKUser = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true}))
     .setColor('#FF00DC')

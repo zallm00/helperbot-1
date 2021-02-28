@@ -7,6 +7,8 @@ module.exports = {
     description: "Shows Calculated Answers Of User's Query",
     category: "Utility",
     usage: "calculate [query](mathematical)",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
 

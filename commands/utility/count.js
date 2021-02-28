@@ -6,6 +6,8 @@ module.exports = {
   description: "Shows the number of members of the server",
   category: "Utility",
   usage: "count",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

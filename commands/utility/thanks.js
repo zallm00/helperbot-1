@@ -6,6 +6,8 @@ module.exports = {
   description: "Give an honorable mention to users who supported and contributed to the development of the bot",
   category: "Utility",
   usage: "thx",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

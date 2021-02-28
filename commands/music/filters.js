@@ -6,6 +6,8 @@ module.exports = {
   description: "Show filter list",
   category: "Music",
   usage: "filters",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "CONNECT", "SPEAK"],
+  userPermissions: ["CONNECT"],
   cooldown: 2,
   run: async (client, message, args) => {
 
@@ -22,7 +24,7 @@ module.exports = {
         array.push(filterName.charAt(0).toUpperCase() + filterName.slice(1) + " : " + (client.player.getQueue(message).filters[filterName] ? "<:HBchecked:783351288171593728>" : "<:HBminus:783351288515657728>"));
     });
 
-    
+
     const embeFilters = new Discord.MessageEmbed()
         .setColor("RANDOM")
         .setTitle("__**Filter List**__")

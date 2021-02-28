@@ -9,6 +9,8 @@ module.exports = {
   description: "Give information about the bot",
   category: "Utility",
   usage: "botinfo",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
@@ -20,7 +22,7 @@ module.exports = {
 
     const usagePercent = require("util").promisify(require("cpu-stat").usagePercent);
     const porcentaje = await usagePercent();
-       
+
     const embed2 = new Discord.MessageEmbed()
     .setThumbnail(client.user.avatarURL())
     .setTitle("**Helper Bot**")

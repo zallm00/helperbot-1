@@ -8,22 +8,24 @@ module.exports = {
   description: "Give the information of an emoji",
   category: "Utility",
   usage: "emoji :emoji:",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS", "VIEW_AUDIT_LOG"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
     let emojiProvided = args[0];
 
-    
+
     if(!emojiProvided) return message.channel.send('<:HBminus:783351288515657728> | Provide an emoji, It has to be from this server.');
-    
-    const match = emojiProvided.match(/<:[a-zA-Z0-9_-]+:(\d{18})>/) || emojiProvided.match(/<a:[a-zA-Z0-9_-]+:(\d{18})>/); 
+
+    const match = emojiProvided.match(/<:[a-zA-Z0-9_-]+:(\d{18})>/) || emojiProvided.match(/<a:[a-zA-Z0-9_-]+:(\d{18})>/);
 
     if (!match || !match[1]) {
         return message.channel.send('<:HBminus:783351288515657728> | Please provide a valid emoji.');
     }
-    
+
     let emoji = message.guild.emojis.cache.get(match[1]);
-    
+
     if(!emoji) return message.channel.send('<:HBminus:783351288515657728> | That emoji could not be identified on the server.');
     function checkDays(date) {
       let now = new Date();
@@ -31,10 +33,10 @@ module.exports = {
       let days = Math.floor(diff / 86400000);
       return days + (days == 1 ? " day" : " days") + " ago";
     };
-    
+
     let embedEmojiInformation = new Discord.MessageEmbed()
     .setTitle(`<:HBinformation:783351288062672896> Emoji Information`)
-    .setThumbnail(emoji.url) 
+    .setThumbnail(emoji.url)
     .addField(`**Name:** ${emoji.name}`, [
       `**ID:** ${emoji.id}`,
       `**Added By:** ${await emoji.fetchAuthor().then(user => user.tag).catch(() => {}) || "I can't see who added it"}`,

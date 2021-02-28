@@ -6,13 +6,15 @@ module.exports = {
   description: "Show the last deleted message",
   category: "Utility",
   usage: "snipe",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
     let channel = message.mentions.channels.first() || message.channel;
     let msg = client.snipes.get(channel.id);
     if(!msg) return message.channel.send('<:HBminus:783351288515657728> | I have not seen a deleted message.');
-    
+
     const embedSnipe = new Discord.MessageEmbed()
     .setAuthor(msg.author, msg.avatar)
     .addField('<:HBclipboard:783351287504044082> **Channel:**', `<#${msg.channel}>`)

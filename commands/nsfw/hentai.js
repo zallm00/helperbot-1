@@ -8,6 +8,9 @@ module.exports = {
     description: "Hentai images (png, jpg or gif)",
     category: "NSFW",
     usage: "hentai",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+    userPermissions: [],
+    onlyNSFW: "Yes",
     cooldown: 3,
     run: async (client, message, args) => {
 

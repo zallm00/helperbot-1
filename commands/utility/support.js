@@ -6,6 +6,8 @@ module.exports = {
     description: "Support server link",
     category: "Utility",
     usage: "support",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 3,
     run: async (client, message, args) => {
         const embedSupportServerLink = new Discord.MessageEmbed()

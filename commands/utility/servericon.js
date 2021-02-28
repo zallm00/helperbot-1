@@ -6,6 +6,8 @@ module.exports = {
   description: "Show the server icon",
   category: "Utility",
   usage: "icon",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

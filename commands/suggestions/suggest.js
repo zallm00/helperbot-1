@@ -7,6 +7,8 @@ module.exports = {
   description: "Submit a server suggestion to the suggestion channel",
   category: "Suggestions",
   usage: "suggest <suggestion>",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 5,
   run: async (client, message, args) => {
 

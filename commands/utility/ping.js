@@ -7,6 +7,8 @@ module.exports = {
   description: "Ping the API and the Bot",
   category: "Utility",
   usage: "ping",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 

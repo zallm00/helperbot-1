@@ -6,6 +6,8 @@ module.exports = {
     description: "Watch a role list on the server",
     category: "Utility",
     usage: "rolelist",
+    botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+    userPermissions: [],
     cooldown: 5,
     run: async (client, message, args) => {
 

@@ -6,6 +6,8 @@ module.exports = {
   description: "Gives the server boost information",
   category: "Utility",
   usage: "boost",
+  botPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL", "EMBED_LINKS"],
+  userPermissions: [],
   cooldown: 3,
   run: async (client, message, args) => {
 
@@ -41,7 +43,7 @@ module.exports = {
         .setAuthor(server.name)
         .setThumbnail(server.iconURL({ dynamic: true }))
         .addFields({
-            name: "<a:gempink:781189104489463868> Boost level:", 
+            name: "<a:gempink:781189104489463868> Boost level:",
             value: nivel[server.premiumTier],
             inline: true
         })
@@ -50,7 +52,7 @@ module.exports = {
                 : `${server.premiumSubscriptionCount} ${
                 server.premiumSubscriptionCount === 1 ? "Boost" : "Boosts"}`,
             inline: true
-        }) 
+        })
         .addFields({
             name: "<a:cdmusic:781188506981498891> Server benefits:", value: `${server.features.length <= 0
                 ? "None"
