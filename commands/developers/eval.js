@@ -33,7 +33,7 @@ module.exports = {
         })
       }
     } catch (e) {
-      message.channel.send(`<:HBwarning:783351287944970251> | **${e.name}:** ${e.message}`)
+      message.channel.send(`<:HBwarning:783351287944970251> | **${e.name}:** ${e.message}`);
     }
 
 

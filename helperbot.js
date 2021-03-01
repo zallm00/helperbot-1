@@ -4,9 +4,9 @@ require("dotenv").config();
 const fs = require("fs");
 const cooldown = new Set();
 require("./mongo.js");
-const prefix = process.env.PREFIX
+const prefix = process.env.PREFIX;
 const MuteDB = require('./models/SystemMute.js');
-const prefixSchema = require("./models/prefix")
+const prefixSchema = require("./models/prefix");
 const moment = require('moment');
 const path = require('path');
 client.snipes = new Map();
@@ -72,7 +72,7 @@ function presence() {
       type: "WATCHING",
     }
   });
-}
+};
 
 client.on("ready", () => {
   console.log(`${client.user.tag} ready ⚡`);
@@ -93,7 +93,7 @@ client.on("ready", () => {
     guilds: client.guilds.cache.size,
     users: client.users.cache.size,
     channels: client.channels.cache.size
-  }
+  };
   ////////////////express section////////////////
 
   const express = require("express");
@@ -104,11 +104,11 @@ client.on("ready", () => {
 
   app.get("/", (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "..", "helper-bot", "pages", "landingPage.html"))
-  })
+  });
 
   app.get("/info", (req, res) => {
     res.status(200).send(clientDetails)
-  })
+  });
 
   app.listen(port)
 });
