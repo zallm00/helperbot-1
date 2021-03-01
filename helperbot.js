@@ -12,6 +12,9 @@ const path = require('path');
 client.snipes = new Map();
 client.editsnipes = new Map();
 client.conf = require('./config/bot');
+const ascii = require('ascii-table')
+const table = new ascii("Commands");
+table.setHeading('Command', ' Load status');
 
 client.filters = client.conf.filters;
 
@@ -22,29 +25,34 @@ client.player = new Player(client);
 const DBL = require('dblapi.js');
 client.dbl = new DBL(process.env.DBL, client);
 
-
-//Collections
+//New Collection
 client.commands = new Discord.Collection();
 
-//Reading files
-fs.readdirSync("./commands").forEach(folder => {
-  const commands = fs.readdirSync(`./commands/${folder}/`).filter(f => f.endsWith(".js"));
-  for (file of commands) {
-    const cmdn = require(`./commands/${folder}/${file}`);
-    client.commands.set(cmdn.name, cmdn);
-  };
+//Reading Folders and files
+let i = 0;
+fs.readdirSync('./commands/').forEach(folder => {
+    const commands = fs.readdirSync(`./commands/${folder}/`).filter(file => file.endsWith('.js'));
+    for(const file of commands){
+        const cmd = require(`./commands/${folder}/${file}`);
+        if(cmd.name){
+            client.commands.set(cmd.name, cmd);
+            table.addRow(`${++i} - ${file}`, '✔️')
+        } else {
+            table.addRow(`${++i} - ${file}`, '❌')
+            continue;
+        }
+    };
 });
+console.log(table.toString());
 
 const player = fs.readdirSync('./player').filter(file => file.endsWith('.js'));
 for (const file of player) {
-  console.log(`[discord-player event] ${file}`);
   const event = require(`./player/${file}`);
   client.player.on(file.split(".")[0], event.bind(null, client));
 };
 
 const events = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of events) {
-  console.log(`[discord.js event] ${file}`);
   const event = require(`./events/${file}`);
   client.on(file.split(".")[0], event.bind(null, client));
 };
@@ -103,7 +111,7 @@ client.on("ready", () => {
   const port = 3000 || 3001;
 
   app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "..", "helper-bot", "pages", "landingPage.html"))
+    res.status(200).sendFile(path.join(__dirname, "..", "discord-bot", "pages", "landingPage.html"))
   });
 
   app.get("/info", (req, res) => {
