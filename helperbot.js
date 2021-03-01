@@ -14,7 +14,7 @@ client.editsnipes = new Map();
 client.conf = require('./config/bot');
 const ascii = require('ascii-table')
 const table = new ascii("Commands");
-table.setHeading('Command', ' Load status');
+table.setHeading('Command', 'Load Status');
 
 client.filters = client.conf.filters;
 
