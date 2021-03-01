@@ -1,13 +1,17 @@
 {
   "name": "helperbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Moderation bot, utility, music, suggestions and logs for Discord!",
   "main": "helperbot.js",
   "scripts": {
     "start": "helperbot.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TheEaterOfSouls/helperbot.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "TheEaterOfSouls#3075",
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
@@ -35,6 +39,7 @@
     "myscrapper": "^0.2.2",
     "node-fetch": "^2.6.1",
     "os": "^0.1.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "reddit-fetch": "^1.5.1"
   }
 }
